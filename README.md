@@ -1,63 +1,88 @@
-Simple Shell
+# 0x16. C - Simple Shell
+This repository contains the files for a simple_shell project. It can be compiled using GCC and will execute a simple shell that can be used for some basic tasks and programs most commonly found in the /bin/ folder.
 
-Repository Description
-This repository contains files to simulate basic Unix Shell with its normal commands. 0x16. C- Simple Shell project at ALX Holberton
+## Pre-requisites
 
-Learning Objectives
-At the end of the project, we should be able to explain the project without the help of Google
+## Authorized functions and macros:
 
-General
-Who designed and implemented the original Unix operating system
-Who wrote the first version of the UNIX shell
-Who invented the B programming language (the direct predecessor to the C programming language)
-Who is Ken Thompson
-How does a shell work
-What is a pid and a ppid
-How to manipulate the environment of the current process
-What is the difference between a function and a system call
-How to create processes
-What are the three prototypes of main
-How does the shell use the PATH to find the programs
-How to execute another program with the execve system call
-How to suspend the execution of a process until one of its children terminates
-What is EOF / “end-of-file”?
+- access (man 2 access)
+- chdir (man 2 chdir)
+- close (man 2 close)
+- closedir (man 3 closedir)
+- execve (man 2 execve)
+- exit (man 3 exit)
+- _exit (man 2 _exit)
+- fflush (man 3 fflush)
+- fork (man 2 fork)
+- free (man 3 free)
+- getcwd (man 3 getcwd)
+- getline (man 3 getline)
+- getpid (man 2 getpid)
+- isatty (man 3 isatty)
+- kill (man 2 kill)
+- malloc (man 3 malloc)
+- open (man 2 open)
+- opendir (man 3 opendir)
+- perror (man 3 perror)
+- read (man 2 read)
+- readdir (man 3 readdir)
+- signal (man 2 signal)
+- stat (__xstat) (man 2 stat)
+- lstat (__lxstat) (man 2 lstat)
+- fstat (__fxstat) (man 2 fstat)
+- strtok (man 3 strtok)
+- wait (man 2 wait)
+- waitpid (man 2 waitpid)
+- wait3 (man 2 wait3)
+- wait4 (man 2 wait4)
+- write (man 2 write)
 
-Environment
-Language: C
-Style GuidelineBetty style
-OS: Ubuntu 20.04 LTS
 
-Resources
-Melissa Medium Blog How a Shell Works
-Unix Shell
-Thompson Shell
-Ken Thompson shell
 
-Description Of Files
-man_3_shell
-shell.h
-main.c
 
-Shell Function Files
-FILE	description
-1	prompt.c	handles outline of shell's reprompting and executing
-2	print_error.c	prints special error messages for certain fails
-3	__exit.c	handles if user types exit or exit(value)
-4	get_env.c	finds and returns copy of environmental variable
-5	env_linked_list.c	prints and creates linked list of envrionmental variables
-6	set_unset_env.c	finds environment variable index node, sets and unsets
-7	free_double_ptr.c	frees double pointers (user's command, arrays)
-8	int_to_string.c	converts int to string to write error messages
-9	_execve.c	executes and frees command, then exits program
-10	which.c	changes directories
-11	_cd.c	finds environment variable index node, sets and unsets
-12	get_line.c	reads user's typed input into buffer
-13	linked_lists.c	adds and deletes nodes; prints and frees linked list
-14	_strcat.c	concatenates two strings
-15	_strcmp.c	compares if two strings match
-16	_strdup.c	duplicates a string
-17	_str_tok.c	tokenizes user's command input and returns array
-18	_realloc.c	helper function handles reallocation
-19	c_str_tok.c	handles output when shell is called outside of shell
-20	_strcpy.c	copies a string
+## Compilation
 
+gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
+
+This wil compile all the '.c' files and change the output's name to 'hsh'.
+
+## Template to test output:
+
+```C:
+
+$ ./hsh
+($) /bin/ls
+hsh main.c shell.c
+($)
+($) exit
+$
+
+```
+
+- After you clone this repository and compile the program with the command above, you will generate a file called hsh that can be executed by entering ./hsh in your shell.
+
+- The output after the program is executed should look something like this:
+
+$| Where you will get a prompt in the shape of a dollar sign so you can start typing commands into your shell. A good example of how it should execute is the command shown above were the user enters 'ls' and then gets a list of the directory contents.
+
+### Function Prototypes:
+
+Brief description of functions contained in project:
+
+_strcmpdir : compares strings to find dir. 
+find_command : finds command to execute in path routes. 
+charput : writes the character like putchar. 
+place : similar to puts in C. 
+_strlen : string length. 
+str_concat : concatenate strings. 
+lookforslash : identify if first char is a '/'. 
+compareExit : checks if user typed exit. 
+compareEnv : checks if user typed env. 
+execute_proc : receives command and args from getline to be executed. 
+identify_string : returns pointer with folder address. 
+prompt : infinite loop with fork to keep prompt going. 
+controlC: avoid program closing when pressing ctrl + c. 
+main: initialize program.
+
+## Authors
+- Rhomeinel | rhomeinel@gmail.com
